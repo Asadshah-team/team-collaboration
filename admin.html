@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMS - Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img src="images/logo.png" alt="LMS Logo" class="logo">
+        <button class="logout" onclick="logout()">Logout</button>
+    </header>
+    <main>
+        <section id="adminSection" class="section active">
+            <img src="images/admin-bg.jpg" alt="Admin Background" class="section-bg">
+            <div class="dashboard-container">
+                <h2>Admin Dashboard</h2>
+                <div class="card">
+                    <h3>Create User (Teacher/Student)</h3>
+                    <form id="createUserForm">
+                        <input type="text" id="userFirstName" placeholder="First Name" required>
+                        <input type="text" id="userLastName" placeholder="Last Name" required>
+                        <input type="email" id="userEmail" placeholder="Email" required>
+                        <input type="password" id="userPassword" placeholder="Password (min 6 chars)" required>
+                        <p id="passwordError" class="error-message" style="display: none;"></p>
+                        <select id="createUserRole" required>
+                            <option value="" disabled selected>Select Role</option>
+                            <option value="teacher">Teacher</option>
+                            <option value="student">Student</option>
+                        </select>
+                        <button type="submit">Create User</button>
+                    </form>
+                </div>
+                <div class="card">
+                    <h3>Create Course</h3>
+                    <form id="createCourseForm">
+                        <input type="text" id="courseName" placeholder="Course Name" required>
+                        <select id="courseTeacher" required>
+                            <option value="" disabled selected>Select Teacher</option>
+                        </select>
+                        <button type="submit">Create Course</button>
+                    </form>
+                </div>
+                <div class="card">
+                    <h3>Enroll Student in Course</h3>
+                    <form id="enrollForm">
+                        <select id="enrollStudent" required>
+                            <option value="" disabled selected>Select Student</option>
+                        </select>
+                        <select id="enrollCourse" required>
+                            <option value="" disabled selected>Select Course</option>
+                        </select>
+                        <button type="submit">Enroll</button>
+                    </form>
+                </div>
+                <div class="card">
+                    <h3>Users List</h3>
+                    <ul id="usersList"></ul>
+                </div>
+                <div class="card">
+                    <h3>Courses List</h3>
+                    <ul id="coursesList"></ul>
+                </div>
+                <div class="card">
+                    <h3>Enrollments List</h3>
+                    <ul id="enrollmentsList"></ul>
+                </div>
+            </div>
+        </section>
+        <div id="successModal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal" onclick="closeModal('successModal')">&times;</span>
+                <img src="images/success.png" alt="Success" class="modal-icon">
+                <h3 id="modalTitle"></h3>
+                <p id="modalMessage"></p>
+                <button onclick="closeModal('successModal')">OK</button>
+            </div>
+        </div>
+        <div id="editUserModal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal" onclick="closeModal('editUserModal')">&times;</span>
+                <h3>Edit User</h3>
+                <form id="editUserForm">
+                    <input type="hidden" id="editUserId">
+                    <input type="text" id="editUserFirstName" placeholder="First Name" required>
+                    <input type="text" id="editUserLastName" placeholder="Last Name" required>
+                    <input type="email" id="editUserEmail" placeholder="Email" required>
+                    <button type="submit">Save Changes</button>
+                    <button type="button" class="cancel" onclick="closeModal('editUserModal')">Cancel</button>
+                </form>
+            </div>
+        </div>
+        <div id="editCourseModal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal" onclick="closeModal('editCourseModal')">&times;</span>
+                <h3>Edit Course</h3>
+                <form id="editCourseForm">
+                    <input type="hidden" id="editCourseId">
+                    <input type="text" id="editCourseName" placeholder="Course Name" required>
+                    <select id="editCourseTeacher">
+                        <option value="" disabled>Select Teacher</option>
+                    </select>
+                    <button type="submit">Save Changes</button>
+                    <button type="button" class="cancel" onclick="closeModal('editCourseModal')">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    <script type="module" src="script.js"></script>
+</body>
+</html>
