@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMS - Student Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img src="images/logo.png" alt="LMS Logo" class="logo">
+        <button class="logout" onclick="logout()">Logout</button>
+    </header>
+    <main>
+        <section id="studentSection" class="section active">
+            <img src="images/student-bg.jpg" alt="Student Background" class="section-bg">
+            <div class="dashboard-container">
+                <h2>Student Dashboard</h2>
+                <div class="card">
+                    <h3>Enrolled Courses</h3>
+                    <ul id="studentCourses"></ul>
+                </div>
+                <div class="card" id="courseDetails" style="display: none;">
+                    <h3>Course Details: <span id="studentCourseName"></span></h3>
+                    <div class="sub-card">
+                        <h4>Outline</h4>
+                        <ul id="studentOutline"></ul>
+                    </div>
+                    <div class="sub-card">
+                        <h4>Videos</h4>
+                        <ul id="studentVideos"></ul>
+                    </div>
+                    <div class="sub-card">
+                        <h4>Quizzes and Marks</h4>
+                        <ul id="studentQuizzes"></ul>
+                    </div>
+                    <div class="sub-card">
+                        <h4>Assignments and Marks</h4>
+                        <ul id="studentAssignments"></ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div id="successModal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal" onclick="closeModal('successModal')">&times;</span>
+                <img src="images/success.png" alt="Success" class="modal-icon">
+                <h3 id="modalTitle"></h3>
+                <p id="modalMessage"></p>
+                <button onclick="closeModal('successModal')">OK</button>
+            </div>
+        </div>
+    </main>
+    <script type="module" src="script.js"></script>
+</body>
+</html>
