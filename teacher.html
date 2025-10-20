@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMS - Teacher Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img src="images/logo.png" alt="LMS Logo" class="logo">
+        <button class="logout" onclick="logout()">Logout</button>
+    </header>
+    <main>
+        <section id="teacherSection" class="section active">
+            <img src="images/teacher-bg.jpg" alt="Teacher Background" class="section-bg">
+            <div class="dashboard-container">
+                <h2>Teacher Dashboard</h2>
+                <div class="card">
+                    <h3>Your Courses</h3>
+                    <ul id="teacherCourses"></ul>
+                </div>
+                <div class="card" id="courseManagement" style="display: none;">
+                    <h3>Manage Course: <span id="currentCourseName"></span></h3>
+                    <div class="sub-card">
+                        <h4>Add Outline Topic</h4>
+                        <form id="addOutlineForm">
+                            <input type="text" id="outlineTopic" placeholder="Topic" required>
+                            <button type="submit">Add Topic</button>
+                        </form>
+                        <ul id="outlineList"></ul>
+                    </div>
+                    <div class="sub-card">
+                        <h4>Add Video Link</h4>
+                        <form id="addVideoForm">
+                            <input type="url" id="videoLink" placeholder="Video URL" required>
+                            <button type="submit">Add Video</button>
+                        </form>
+                        <ul id="videoList"></ul>
+                    </div>
+                    <div class="sub-card">
+                        <h4>Add Quiz</h4>
+                        <form id="addQuizForm">
+                            <input type="text" id="quizName" placeholder="Quiz Name" required>
+                            <button type="submit">Add Quiz</button>
+                        </form>
+                        <ul id="quizList"></ul>
+                    </div>
+                    <div class="sub-card">
+                        <h4>Add Assignment</h4>
+                        <form id="addAssignmentForm">
+                            <input type="text" id="assignmentName" placeholder="Assignment Name" required>
+                            <button type="submit">Add Assignment</button>
+                        </form>
+                        <ul id="assignmentList"></ul>
+                    </div>
+                    <div class="sub-card">
+                        <h4>Assign Marks to Students</h4>
+                        <div id="studentsMarks"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div id="successModal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal" onclick="closeModal('successModal')">&times;</span>
+                <img src="images/success.png" alt="Success" class="modal-icon">
+                <h3 id="modalTitle"></h3>
+                <p id="modalMessage"></p>
+                <button onclick="closeModal('successModal')">OK</button>
+            </div>
+        </div>
+    </main>
+    <script type="module" src="script.js"></script>
+</body>
+</html>
